@@ -50,7 +50,15 @@ Using this data I have an implicit rating sytem, in the sense that the playlist 
 
 ### spotify_methods.py
 - Methods to utilize the spotipy library [4].
-- Requires a spotify_auth.py file that sets the environment variables used here for autentication.
+- Requires a spotify_auth.py file that sets the environment variables used here for autentication:
+
+```python
+import os
+os.enviro n["CLIENT_ID"] = ...
+os.environ["CLIENT_SECRET"] = ...
+os.environ["REDIRECT_URI"] = ...
+```
+
 > Due to [7], retrieval of audio features is no longer possible
 
 ## Streamlit App
