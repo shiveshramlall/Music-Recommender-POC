@@ -12,24 +12,28 @@ from modules import recommender_methods as rm
 
 loaded = rm.load_model()
 
+PARENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 @st.experimental_memo
 def get_users():
-
-    with open('model\\playlists_users_ref.json') as json_file:
+    file_path = os.path.join(PARENT_DIR, 'model', 'playlists_users_ref.json')
+    with open(file_path) as json_file:
         users_dict = json.load(json_file)
 
     return users_dict
 
 @st.experimental_memo
 def get_pids():
-    with open('model\\playlists_id_ref.json') as json_file:
+    file_path = os.path.join(PARENT_DIR, 'model', 'playlists_id_ref.json')
+    with open(file_path) as json_file:
         pids_dict = json.load(json_file)
 
     return pids_dict
 
 @st.experimental_memo
 def get_training_data():
-    with open('model\\extra_playlist_songs.json') as json_file:
+    file_path = os.path.join(PARENT_DIR, 'model', 'extra_playlist_songs.json')
+    with open(file_path) as json_file:
         spotify_playlists = json.load(json_file)
 
     return spotify_playlists
